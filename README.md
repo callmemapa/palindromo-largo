@@ -8,11 +8,6 @@ En este ejercicio se busca encontrar la subsecuencia común más larga de caract
 Ejemplo: Si la entrada es 123abbaabbazxsq la salida sería abbaabba.
 ## Pre-requisitos
 * Tener instalado Node.js y JQuery.
-### Instalación de JQuery
-Ejecutar el siguiente comando dentro del proyecto:
-```
-npm install jquery
-```
 ## Descarga
 Escribir en el git bash el siguiente comando:
 ```
