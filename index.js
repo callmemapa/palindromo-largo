@@ -1,7 +1,8 @@
 //Desarrollo de la función principal
-function subPalin() {
-    cadena = document.getElementsByName("cadena")[0].value; //Aquí guarda la cadena ingresada en el input del html
-    let elemento = document.getElementById("mensaje");      // Obtengo el elemento donde voy a mostrar el mensaje
+function subPalin(cadena) {
+    //Aquí guarda la cadena ingresada en el input del html
+    cadena = document.getElementsByName("cadena")[0].value; //Comentar cuando se vayan a ejecutar las pruebas unitarias 
+    let elemento = document.getElementById("mensaje");      //Obtengo el elemento donde voy a mostrar el mensaje
     var variable = "";                                      //Esta es la variable que almacenará el palíndromo
     var tamano = cadena.length;                             //El tamaño nos facilitará al momento de recorrer la cadena
     var max = 1, inicio = 0;                                //max es la longitud del palindromo más largo, inicio es donde empieza tal palindromo
@@ -54,46 +55,13 @@ function subPalin() {
     for (var i = inicio; i < inicio+max; i++) {
         variable = variable + cadena.charAt(i);
     }
-    //Mensaje de alerta que muestra el subpalindromo más largo:
-    //alert("El palíndromo más largo de la cadena es: "+variable);
-    elemento.innerHTML  = "El palíndromo más largo de la cadena es: " + variable;
+    
+    //Aquí se muestra cuál es el palíndromo más largo
+    elemento.innerHTML  = "El palíndromo más largo de la cadena es: " + variable; //Comentar cuando se vayan a ejecutar las pruebas unitarias
+    return variable;
 }
+
+module.exports = subPalin;
 
 /*Nota: al inicio estaba intentando realizar estas comparaciones con un array unidimensional y no funcionaba, porque
 era muy complejo compararlos todos con todos, entonces por eso se utilizó una matriz*/
-
-//Función para determinar si una palabra es o no es palíndromo
-function esPalindromo(palabra) {
-    var inversa = "";
-    inversa = palabra.split("").reverse().join("");
-    //si es igual a la inversa, quiere decir que se lee igual al derecho y al revés
-    if (palabra == inversa) {
-        return true;
-    } 
-    else {
-        return false;
-    }
-}
-
-//Función prueba que utiliza la función auxiliar para determinar si es palíndromo o no
-function prueba() {
-    cadena = document.getElementsByName("cadena")[0].value;
-    var variable;
-
-    //Caso base: si la cadena es vacía entonces es palíndromo
-    if (cadena == "") {
-        variable = "El palíndromo más grande de la cadena es vacío.";
-    }
-    //Caso 1: si la cadena solo tiene 1 letra o 1 número, entonces es palíndromo y por tanto devuelve toda la palabra
-    else if (cadena.length == 1) {
-        variable = cadena;
-    }
-    //Caso 2: si toda la palabra es un palíndromo, entonces devuelvo toda la palabra
-    else if (esPalindromo(cadena)) {
-        variable = cadena;
-    }
-    else {
-        //pruebita();
-    }
-    alert(variable);
-}
